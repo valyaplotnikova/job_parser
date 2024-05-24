@@ -2,6 +2,9 @@ from src.Vacancy import Vacancy
 
 
 def get_user_vacancies(vacancies_list):
+    """
+    Возвращает список экземпляров класса Вакансии
+    """
     user_vacancies = []
     for vacancy in vacancies_list:
         name = vacancy['name']
@@ -24,9 +27,13 @@ def get_user_vacancies(vacancies_list):
 
 
 def filter_vacancies(vacancies_list, filter_words):
+    """
+    Возвращает список вакансий по ключевым словам.
+    Если ключевых слов не найдено, возвращает весь список
+    """
     filter_vacancies_list = []
     for vacancy in vacancies_list:
-        if vacancy.snippet is not None:
+        if vacancy.snippet.lower() is not None:
             if any(map(lambda x: x in vacancy.snippet, filter_words)):
                 filter_vacancies_list.append(vacancy)
     if len(filter_vacancies_list) == 0:
@@ -38,11 +45,17 @@ def filter_vacancies(vacancies_list, filter_words):
 
 
 def sort_vacancies(ranged_vacancies):
+    """
+    Возвращает отсортированный список вакансий по уровню заработной платы по верхнему пределу
+    """
     sort_vacancies_list = sorted(ranged_vacancies, key=lambda x: x.salary_to, reverse=True)
     return sort_vacancies_list
 
 
 def get_top_vacancies(sorted_vacancies, top_n):
+    """
+    Возвращает первые топ- вакансий из списка
+    """
     if len(sorted_vacancies) > top_n:
         return sorted_vacancies[:top_n]
     else:
@@ -50,10 +63,17 @@ def get_top_vacancies(sorted_vacancies, top_n):
 
 
 def print_vacancies(top_vacancies):
+    """
+    Выводит на экран первые топ- вакансий из списка
+    """
     print(top_vacancies)
 
 
 def get_salary_range_vacancies(user_vacancies, salary_range):
+    """
+     Возвращает список вакансий, подходящих по заработной плате.
+     Или информирует, что таких вакансий не нашлось
+     """
     salary_range_vacancies = []
     for vacancy in user_vacancies:
         if vacancy.salary_from > int(salary_range):
