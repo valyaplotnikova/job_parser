@@ -5,7 +5,7 @@ import requests
 
 class Parser(ABC):
     @abstractmethod
-    def get_vacancies(self, keyword):
+    def get_vacancies(self, *args, **kwargs):
         pass
 
 
