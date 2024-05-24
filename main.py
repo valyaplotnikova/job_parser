@@ -6,7 +6,9 @@ from src.func import (filter_vacancies, sort_vacancies, get_top_vacancies,
 def user_interaction():
     search_query = input("Введите поисковый запрос для поиска вакансий: ")
     hh_api = HeadHunterAPI()
+
     hh_vacancies = hh_api.get_vacancies(search_query)
+    print(hh_vacancies)
     user_vacancies = get_user_vacancies(hh_vacancies)
     print(f"Всего нашлось {len(user_vacancies)}")
     filter_words = input("Введите ключевые слова для фильтрации вакансий: ").lower().split()
