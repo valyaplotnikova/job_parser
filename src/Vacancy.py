@@ -39,5 +39,5 @@ class Vacancy:
         Определение поведения для оператора '>'. Сравнивает вакансии по зарплате
         """
         if self.salary_to > other.salary_to:
-            return self.salary_to
-        return other.salary_to
+            return True
+
