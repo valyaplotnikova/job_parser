@@ -7,7 +7,7 @@ def test_get_user_vacancies(fixture_vacancies_list):
 
 
 def test_filter_vacancies(fixture_vacancy):
-    assert len(filter_vacancies(fixture_vacancy, ['pазрабатывать'])) == 1
+    assert len(filter_vacancies(fixture_vacancy, ['Разрабатывать'])) == 1
     assert len(filter_vacancies(fixture_vacancy, ['писать'])) == 2
 
 def test_sort_vacancies(fixture_vacancy):

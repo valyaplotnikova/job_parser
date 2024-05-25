@@ -33,7 +33,7 @@ def filter_vacancies(vacancies_list, filter_words):
     """
     filter_vacancies_list = []
     for vacancy in vacancies_list:
-        if vacancy.snippet.lower() is not None:
+        if vacancy.snippet is not None:
             if any(map(lambda x: x in vacancy.snippet, filter_words)):
                 filter_vacancies_list.append(vacancy)
     if len(filter_vacancies_list) == 0:
@@ -66,7 +66,7 @@ def print_vacancies(top_vacancies):
     """
     Выводит на экран первые топ- вакансий из списка
     """
-    print(top_vacancies)
+    print(*top_vacancies)
 
 
 def get_salary_range_vacancies(user_vacancies, salary_range):
