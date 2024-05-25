@@ -10,6 +10,7 @@ python = "^3.12"
 pytest = "^8.2.1"
 requests = "^2.32.1"
 config = "^0.5.1"
+pyproject-toml = "^0.0.10"
 
 
 [build-system]
